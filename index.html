@@ -247,7 +247,7 @@ function normNguon(s){s=(""+(s||"")).trim();
   return "Khac";}
 function nameOnly(s){return (""+(s||"")).replace(/\s*\([^)]*\)/g,"").trim();}   // bỏ phần (PCT)/(Cục trưởng), chỉ giữ tên
 function isSecret(d){return /mật/i.test((""+(d||"")));}   // Mật / Tối mật / Tuyệt mật (Thường → không)
-/* Nhận cả mã (VP, DPH…) lẫn tên đầy đủ, có dấu/không dấu, có/không chữ "Phòng" */
+/* Nhận cả mã phòng (VP, ĐP, SP…) lẫn tên đầy đủ, có dấu/không dấu, có/không chữ "Phòng" */
 const _PH_KEY=(x)=>(""+(x||"")).normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[đĐ]/g,"d").toUpperCase().replace(/[^A-Z0-9]/g,"");
 const _PH_MAP=(()=>{const m={};PHONG_ORDER.forEach(c=>{m[_PH_KEY(c)]=c;const full=PHONG_TEN[c];m[_PH_KEY(full)]=c;m[_PH_KEY(full.replace(/^Phòng\s+/i,""))]=c;});
   m[_PH_KEY("Văn phòng")]="VP";return m;})();
