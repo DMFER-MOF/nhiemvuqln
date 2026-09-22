@@ -188,7 +188,7 @@
      - Hoặc để "data.csv" nếu đặt tệp dữ liệu cùng thư mục trên server.
    ============================================================ */
 const CONFIG = {
-  DATA_URL: "https://docs.google.com/spreadsheets/d/1zs71LuMmgWBfENdEvUMLv2jOK3LIivZW/edit?gid=909480167#gid=909480167",   // ← dán link CSV đã xuất bản của tab DuLieu (Bộ công cụ Cục QLN&KTĐN)
+  DATA_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSENVfaisPR9x3M0Auut55D4idsALiI-zmxefQiEFbxuSifobyh45CU4y5OIJ0CQUkvIXIGRweLjvwt/pub?output=csv",   // ← dán link CSV đã xuất bản của tab DuLieu (Bộ công cụ Cục QLN&KTĐN)
   REFRESH_MINUTES: 5,     // tự đọc lại dữ liệu mỗi 5 phút
   SLIDE_SECONDS: 20,      // thời gian mỗi trang
   ROWS_PER_PAGE: 7,       // số nhiệm vụ mỗi trang danh mục
@@ -203,10 +203,10 @@ const CONFIG = {
   HIDE_NGUON_DETAIL: []   // các nguồn KHÔNG đưa vào danh mục đôn đốc. Để trống = hiện tất cả nguồn (kể cả Phối hợp) cho khớp với bảng xếp hạng. Thêm mã nguồn (vd "PH") nếu muốn ẩn.
 };
 
-const PHONG_TEN={VP:"Văn phòng Cục",DPH:"Phòng Đa phương",SPH:"Phòng Song phương",DATW:"Phòng Quản lý dự án trung ương",DADP:"Phòng Quản lý dự án địa phương",BLVTM:"Phòng Quản lý bảo lãnh Chính phủ và Vay thương mại",VTRO:"Phòng Quản lý viện trợ",KHRR:"Phòng Kế hoạch và Quản lý rủi ro",KTTK:"Phòng Kế toán nợ và Thống kê",LCP:"Phòng Hợp tác với Lào và Campuchia",DNDA:"Phòng Đối ngoại và Quản lý chương trình, dự án",HNKT:"Phòng Hội nhập Kinh tế - Tài chính"};
+const PHONG_TEN={"VP":"Văn phòng Cục","ĐP":"Phòng Đa phương","SP":"Phòng Song phương","DATW":"Phòng Quản lý dự án trung ương","DADP":"Phòng Quản lý dự án địa phương","BL":"Phòng Quản lý bảo lãnh Chính phủ và Vay thương mại","QLVT":"Phòng Quản lý viện trợ","KH&QLRR":"Phòng Kế hoạch và Quản lý rủi ro","KTNTK":"Phòng Kế toán nợ và Thống kê","CK":"Phòng Hợp tác với Lào và Campuchia","ĐN":"Phòng Đối ngoại và Quản lý chương trình, dự án","HN":"Phòng Hội nhập Kinh tế - Tài chính"};
 /* Tên rút gọn cho màn hình TV (12 Phòng, tên dài) — bản điện thoại dùng tên đầy đủ */
-const PHONG_NGAN={VP:"Văn phòng Cục",DPH:"Phòng Đa phương",SPH:"Phòng Song phương",DATW:"QL dự án trung ương",DADP:"QL dự án địa phương",BLVTM:"QL bảo lãnh CP & Vay TM",VTRO:"QL viện trợ",KHRR:"Kế hoạch & QL rủi ro",KTTK:"Kế toán nợ & Thống kê",LCP:"Hợp tác Lào – Campuchia",DNDA:"Đối ngoại & QL CT, DA",HNKT:"Hội nhập KT – TC"};
-const PHONG_ORDER=["VP","DPH","SPH","DATW","DADP","BLVTM","VTRO","KHRR","KTTK","LCP","DNDA","HNKT"];
+const PHONG_NGAN={"VP":"Văn phòng Cục","ĐP":"Phòng Đa phương","SP":"Phòng Song phương","DATW":"QL dự án trung ương","DADP":"QL dự án địa phương","BL":"QL bảo lãnh CP & Vay TM","QLVT":"QL viện trợ","KH&QLRR":"Kế hoạch & QL rủi ro","KTNTK":"Kế toán nợ & Thống kê","CK":"Hợp tác Lào – Campuchia","ĐN":"Đối ngoại & QL CT, DA","HN":"Hội nhập KT – TC"};
+const PHONG_ORDER=["VP","ĐP","SP","DATW","DADP","BL","QLVT","KH&QLRR","KTNTK","CK","ĐN","HN"];
 function tvName(p){return PHONG_NGAN[p]||PHONG_TEN[p]||p;}
 const NGUON={TW:{ten:"Trung ương",tier:"cao"},QH:{ten:"Quốc hội",tier:"cao"},TTg:{ten:"Thủ tướng Chính phủ",tier:"cao"},CP:{ten:"Chính phủ",tier:"cao"},Bo:{ten:"Bộ giao",tier:"uutien"},PH:{ten:"Phối hợp",tier:"thuong"},PL:{ten:"Theo QĐ pháp luật",tier:"uutien"},DN:{ten:"Doanh nghiệp",tier:"uutien"},DP:{ten:"Địa phương/Bộ ngành",tier:"uutien"},Khac:{ten:"Khác",tier:"thuong"}};
 const TIER_RANK={cao:0,uutien:1,thuong:2};
